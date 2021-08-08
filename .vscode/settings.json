@@ -1,4 +1,17 @@
 {
   "workbench.colorTheme": "Red One Dark Pro | Mirage Bordered",
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "rest-client.environmentVariables": {
+    "$shared": {
+      "version": "v1"
+    },
+    "development": {
+      "baseUrl": "http://127.0.0.1:5000",
+      "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTBlZTliMDEyYzg4OTAwM2Q2NjlmZGUiLCJlbWFpbCI6InRlc3RhZG9yQGxpdmUuY29tIiwiaWF0IjoxNjI4MzY3Mjg4fQ.2mwA3cXdUYnMYbuRWiZ3RyqNVYh4PAhtZuphTGppbfQ"
+    },
+    "production": {
+      "baseUrl": "https://api.yourserver.com",
+      "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEwOGMwNTAwZjkwYzAwMmUzOTAyYzEiLCJlbWFpbCI6ImpvYW9wYXVsb2Z1cnRhZG9AbGl2ZS5jb20iLCJpYXQiOjE2MjI1MzE4MDB9.RexYStgGwlEmNZIz7AqYekpDdirlfEv_mG6xy6uNWJ4"
+    }
+  }
 }

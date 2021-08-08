@@ -1,0 +1,14 @@
+
+
+# User :: Create (Sign Up)
+POST {{baseUrl}}/auth/signup HTTP/1.1
+content-type: application/json
+
+{
+    "email": "tes222t@live.com",
+    "password": "abc232321",
+    "passwordConfirmation": "123455",
+    "name": "Null Pointer Dev"
+}
+
+###
