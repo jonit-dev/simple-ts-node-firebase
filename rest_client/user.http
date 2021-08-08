@@ -7,7 +7,7 @@ content-type: application/json
 {
     "email": "tes222t@live.com",
     "password": "abc232321",
-    "passwordConfirmation": "123455",
+    "passwordConfirmation": "abc232321",
     "name": "Null Pointer Dev"
 }
 

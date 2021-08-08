@@ -6,14 +6,14 @@ import { HttpStatus } from "../../types/server.types";
 
 const userRouter = express.Router();
 
-userRouter.post("/auth/signup", async (req, res) => {
+userRouter.post("/auth/signup", async (req, res, next) => {
+  const { email, password, passwordConfirmation, name } = req.body;
+
+  if (password !== passwordConfirmation) {
+    throw new BadRequestError("Password confirmation does not match");
+  }
+
   try {
-    const { email, password, passwordConfirmation, name } = req.body;
-
-    if (password !== passwordConfirmation) {
-      throw new BadRequestError("Password confirmation does not match");
-    }
-
     const user = await firebaseHelper.admin.auth().createUser({
       email,
       password,
@@ -22,7 +22,7 @@ userRouter.post("/auth/signup", async (req, res) => {
 
     return res.status(HttpStatus.Created).send(user);
   } catch (error) {
-    console.error(error);
+    throw new BadRequestError(error.message);
   }
 });
 

@@ -1,4 +1,4 @@
-import "../src/providers/helpers/Firebase.helper";
+import "express-async-errors";
 
 import cors from "cors";
 import express from "express";
@@ -22,5 +22,6 @@ app.use(userRouter);
 
 const server = app.listen(port, () => {
   console.log(`⚙️ Server running on port ${port}`);
-  app.use(errorHandlerMiddleware);
 });
+
+app.use(errorHandlerMiddleware); // MUST be at the end
