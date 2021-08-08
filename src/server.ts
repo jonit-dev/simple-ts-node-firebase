@@ -1,5 +1,6 @@
 import "../src/providers/helpers/Firebase.helper";
 
+import cors from "cors";
 import express from "express";
 
 import { errorHandlerMiddleware } from "./providers/middlewares/ErrorHandlerMiddleware";
@@ -12,6 +13,8 @@ const port = process.env.PORT || 5000;
 
 // Middlewares ========================================
 
+app.use(cors());
+app.use(express.json());
 app.use(errorHandlerMiddleware);
 app.use(serverRouter);
 app.use(cafeRouter);
