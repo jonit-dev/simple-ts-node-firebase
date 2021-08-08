@@ -2,7 +2,7 @@ import express from "express";
 
 import { BadRequestError } from "../../providers/errors/BadRequestError";
 import { firebaseHelper } from "../../providers/helpers/Firebase.helper";
-import { HttpStatus } from "../../types/server.types";
+import { HttpStatus } from "../../types/ServerTypes";
 
 const userRouter = express.Router();
 

@@ -1,21 +1,12 @@
 import express from "express";
 
-import { BadRequestError } from "../../providers/errors/BadRequestError";
-import { readAllResources } from "../../providers/helpers/crud.helper";
-import { HttpStatus } from "../../types/server.types";
+import { isAuthenticated } from "../../providers/middlewares/AuthMiddleware";
+import { viewCafeUseCase } from "../../useCases/cafe/view/ViewCafeUseCase";
 
 const cafeRouter = express.Router();
 
-cafeRouter.get("/cafes", async (req, res) => {
-  try {
-    const cafes = await readAllResources("cafes");
-
-    return res.status(HttpStatus.OK).json(cafes);
-  } catch (error) {
-    console.error(error);
-
-    throw new BadRequestError(error.message);
-  }
-});
+cafeRouter.get("/cafes", isAuthenticated, async (req, res) =>
+  viewCafeUseCase.readAll(req, res)
+);
 
 export { cafeRouter };
