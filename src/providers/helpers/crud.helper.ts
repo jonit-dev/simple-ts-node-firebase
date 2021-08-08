@@ -23,7 +23,7 @@ export const deleteResource = async (
 };
 
 export const convertSnapshotToArray = (querySnapshot: any) => {
-  const data = [];
+  const data: any[] = [];
 
   for (const cafe of querySnapshot.docs) {
     data.push({
