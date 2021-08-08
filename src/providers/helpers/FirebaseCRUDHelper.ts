@@ -1,4 +1,4 @@
-import { firebaseHelper } from "./Firebase.helper";
+import { firebaseHelper } from "./FirebaseHelper";
 
 export const readAllResources = async <T>(
   collectionPath: string

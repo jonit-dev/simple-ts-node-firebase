@@ -1,6 +1,6 @@
 import { HttpStatus } from "../../types/ServerTypes";
 import { UnauthorizedError } from "../errors/UnauthorizedError";
-import { firebaseHelper } from "../helpers/Firebase.helper";
+import { firebaseHelper } from "../helpers/FirebaseHelper";
 
 const admin = firebaseHelper.admin;
 

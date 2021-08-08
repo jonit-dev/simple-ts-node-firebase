@@ -1,6 +1,6 @@
 import admin, { ServiceAccount } from "firebase-admin";
 
-import serviceAccount from "../../data/firebase-service-account-key.json";
+import serviceAccount from "../data/firebase-service-account-key.json";
 
 class FirebaseHelper {
   public admin: admin.app.App;
