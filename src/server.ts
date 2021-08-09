@@ -9,6 +9,7 @@ import logger from "morgan";
 import { errorHandlerMiddleware } from "./providers/middlewares/ErrorHandlerMiddleware";
 import { cafeRouter } from "./useCases/cafe/CafeController";
 import { formRouter } from "./useCases/form/FormController";
+import { serverRouter } from "./useCases/server/ServerController";
 import { userRouter } from "./useCases/users/UserController";
 
 const app = express();
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use(cafeRouter);
 app.use(userRouter);
 app.use(formRouter);
+app.use(serverRouter);
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
