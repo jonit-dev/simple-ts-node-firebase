@@ -1,11 +1,12 @@
+import { auth } from "firebase-admin";
+
 import { BadRequestError } from "../../providers/errors/BadRequestError";
 import { firebaseHelper } from "../../providers/helpers/FirebaseHelper";
 import { INewUser } from "./types/UserTypes";
 
 class RegisterUserUseCase {
-  public async register(newUser: INewUser) {
-    const { name, email, password, passwordConfirmation, phone, address } =
-      newUser;
+  public async register(newUser: INewUser): Promise<auth.UserRecord> {
+    const { name, email, password, passwordConfirmation } = newUser;
 
     if (password !== passwordConfirmation) {
       throw new BadRequestError("Password confirmation does not match");
@@ -20,7 +21,7 @@ class RegisterUserUseCase {
 
       const uid = user.uid;
 
-      //create it also in our database
+      // create it also in our database
 
       await firebaseHelper.db.collection("users").doc(uid).set(newUser);
 

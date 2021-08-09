@@ -2,7 +2,7 @@ import { BadRequestError } from "../../providers/errors/BadRequestError";
 import { readAllResources } from "../../providers/helpers/FirebaseCRUDHelper";
 
 class ViewCafeUseCase {
-  public async readAll() {
+  public async readAll(): Promise<any[]> {
     try {
       const cafes = await readAllResources("cafes");
 

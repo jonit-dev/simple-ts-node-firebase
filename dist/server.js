@@ -7,6 +7,7 @@ require("express-async-errors");
 var compression_1 = __importDefault(require("compression"));
 var cors_1 = __importDefault(require("cors"));
 var express_1 = __importDefault(require("express"));
+var express_rate_limit_1 = __importDefault(require("express-rate-limit"));
 var morgan_1 = __importDefault(require("morgan"));
 var ErrorHandlerMiddleware_1 = require("./providers/middlewares/ErrorHandlerMiddleware");
 var CafeController_1 = require("./useCases/cafe/CafeController");
@@ -20,6 +21,11 @@ app.use(compression_1.default());
 app.use(express_1.default.json());
 app.use(CafeController_1.cafeRouter);
 app.use(UserController_1.userRouter);
+var limiter = express_rate_limit_1.default({
+    windowMs: 15 * 60 * 1000,
+    max: 150, // limit each IP to 100 requests per windowMs
+});
+app.use(limiter);
 app.listen(port, function () {
     console.log("\u2699\uFE0F Server running on port " + port);
 });
