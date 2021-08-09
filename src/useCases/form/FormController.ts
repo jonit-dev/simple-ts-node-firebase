@@ -10,4 +10,15 @@ formRouter.get("/form/countries", (req, res) => {
   return res.status(HttpStatus.OK).send(countries);
 });
 
+formRouter.get("/form/languages", (req, res) => {
+  const languages = viewFormUseCase.readLanguages();
+
+  return res.status(HttpStatus.OK).send(languages);
+});
+
+formRouter.get("/form/industries", (req, res) => {
+  const industries = viewFormUseCase.readIndustries();
+  return res.status(HttpStatus.OK).send(industries);
+});
+
 export { formRouter };
