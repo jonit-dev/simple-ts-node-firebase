@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --ignore-watch ./node_modules --transpile-only --respawn -r dotenv/config ./src/server.ts",
+    "dev": "ts-node-dev --ignore-watch ./node_modules --transpile-only --respawn -r dotenv/config -r tsconfig-paths/register ./src/server.ts",
     "build": "tsc -p .",
     "start": "yarn build && yarn install && ts-node-dev --ignore-watch ./node_modules --transpile-only --respawn -r dotenv/config ./src/server.ts",
     "prepare": "husky install",
@@ -36,6 +36,7 @@
     "prettier-quick": "^0.0.5",
     "pretty-quick": "^3.1.1",
     "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.10.1",
     "typescript": "^4.3.5"
   },
   "dependencies": {

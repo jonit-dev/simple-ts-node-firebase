@@ -13,3 +13,11 @@ formRouter.get("/form/countries", function (req, res) {
     var countries = ViewFormUseCase_1.viewFormUseCase.readCountries();
     return res.status(ServerTypes_1.HttpStatus.OK).send(countries);
 });
+formRouter.get("/form/languages", function (req, res) {
+    var languages = ViewFormUseCase_1.viewFormUseCase.readLanguages();
+    return res.status(ServerTypes_1.HttpStatus.OK).send(languages);
+});
+formRouter.get("/form/industries", function (req, res) {
+    var industries = ViewFormUseCase_1.viewFormUseCase.readIndustries();
+    return res.status(ServerTypes_1.HttpStatus.OK).send(industries);
+});

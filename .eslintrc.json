@@ -11,6 +11,9 @@
     "sourceType": "module"
   },
   "plugins": ["@typescript-eslint", "unused-imports", "promise"],
+  "import/resolver": {
+    "typescript": {}
+  },
   "rules": {
     "semi": ["warn", "always"],
     "quotes": ["warn", "double", { "avoidEscape": true }],

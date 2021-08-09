@@ -1,5 +1,6 @@
 import "express-async-errors";
 
+import { Currencies } from "@insta-shared";
 import compression from "compression";
 import cors from "cors";
 import express from "express";
@@ -36,6 +37,7 @@ app.use(limiter);
 
 app.listen(port, () => {
   console.log(`⚙️ Server running on port ${port}`);
+  console.log(Currencies.USD);
 });
 
 app.use(errorHandlerMiddleware); //! MUST be at the end

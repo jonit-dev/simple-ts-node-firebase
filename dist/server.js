@@ -12,6 +12,7 @@ var morgan_1 = __importDefault(require("morgan"));
 var ErrorHandlerMiddleware_1 = require("./providers/middlewares/ErrorHandlerMiddleware");
 var CafeController_1 = require("./useCases/cafe/CafeController");
 var FormController_1 = require("./useCases/form/FormController");
+var ServerController_1 = require("./useCases/server/ServerController");
 var UserController_1 = require("./useCases/users/UserController");
 var app = express_1.default();
 var port = process.env.PORT || 5000;
@@ -23,6 +24,7 @@ app.use(express_1.default.json());
 app.use(CafeController_1.cafeRouter);
 app.use(UserController_1.userRouter);
 app.use(FormController_1.formRouter);
+app.use(ServerController_1.serverRouter);
 var limiter = express_rate_limit_1.default({
     windowMs: 15 * 60 * 1000,
     max: 150, // limit each IP to 100 requests per windowMs
