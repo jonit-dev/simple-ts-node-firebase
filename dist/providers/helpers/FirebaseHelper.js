@@ -12,7 +12,6 @@ var FirebaseHelper = /** @class */ (function () {
             credential: firebase_admin_1.default.credential.cert(firebase_service_account_key_json_1.default),
         });
         this.db = firebase_admin_1.default.firestore();
-        console.log("\uFE0F\u200D\uD83D\uDD25 Firebase-admin initialized");
     }
     return FirebaseHelper;
 }());
