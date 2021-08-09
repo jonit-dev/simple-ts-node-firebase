@@ -1,12 +1,15 @@
 import express from "express";
 
 import { isAuthenticated } from "../../providers/middlewares/AuthMiddleware";
+import { HttpStatus } from "../../types/ServerTypes";
 import { viewCafeUseCase } from "./ViewCafeUseCase";
 
 const cafeRouter = express.Router();
 
 cafeRouter.get("/cafes", isAuthenticated, async (req, res) => {
-  return await viewCafeUseCase.readAll();
+  const cafes = await viewCafeUseCase.readAll();
+
+  return res.status(HttpStatus.OK).send(cafes);
 });
 
 export { cafeRouter };
