@@ -13,6 +13,7 @@
     "paths": {
       "@providers/*": ["providers/*"],
       "@useCases/*": ["useCases/*"],
+      "@entities/*": ["entities/*"],
       "@insta-shared/*": ["../../insta-shared/*"]
     }
   },
