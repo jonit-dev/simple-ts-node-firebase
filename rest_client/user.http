@@ -5,10 +5,12 @@ POST {{baseUrl}}/auth/signup HTTP/1.1
 content-type: application/json
 
 {
-    "email": "tes222t@live.com",
-    "password": "abc232321",
-    "passwordConfirmation": "abc232321",
-    "name": "Null Pointer Dev"
+    "name": "Joao",
+    "email": "joaopaulofurtado@live.com",
+    "phone": "778 846 7427",
+    "address": "1010 6th Ave, New Westminster",
+    "password": "123456",
+    "passwordConfirmation": "123456"
 }
 
 ###

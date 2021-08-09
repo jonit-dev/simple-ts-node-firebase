@@ -1,12 +1,15 @@
 import express from "express";
 
+import { HttpStatus } from "../../types/ServerTypes";
 import { registerUserUseCase } from "./RegisterUserUseCase";
 
 const userRouter = express.Router();
 
 userRouter.post("/auth/signup", async (req, res) => {
   const newUser = req.body;
-  return await registerUserUseCase.register(newUser);
+  const userCreated = await registerUserUseCase.register(newUser);
+
+  return res.status(HttpStatus.Created).send(userCreated);
 });
 
 export { userRouter };
