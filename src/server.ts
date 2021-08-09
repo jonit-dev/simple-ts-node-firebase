@@ -34,4 +34,4 @@ app.listen(port, () => {
   console.log(`⚙️ Server running on port ${port}`);
 });
 
-app.use(errorHandlerMiddleware); // MUST be at the end
+app.use(errorHandlerMiddleware); //! MUST be at the end
