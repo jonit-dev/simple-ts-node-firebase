@@ -6,7 +6,7 @@ import { viewCafeUseCase } from "./ViewCafeUseCase";
 
 const cafeRouter = express.Router();
 
-cafeRouter.get("/cafes", isAuthenticated, async (req, res) => {
+cafeRouter.get("/cafe", isAuthenticated, async (req, res) => {
   const cafes = await viewCafeUseCase.readAll();
 
   return res.status(HttpStatus.OK).send(cafes);

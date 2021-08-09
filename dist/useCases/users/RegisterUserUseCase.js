@@ -44,11 +44,11 @@ var RegisterUserUseCase = /** @class */ (function () {
     }
     RegisterUserUseCase.prototype.register = function (newUser) {
         return __awaiter(this, void 0, void 0, function () {
-            var name, email, password, passwordConfirmation, phone, address, user, uid, error_1;
+            var name, email, password, passwordConfirmation, user, uid, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        name = newUser.name, email = newUser.email, password = newUser.password, passwordConfirmation = newUser.passwordConfirmation, phone = newUser.phone, address = newUser.address;
+                        name = newUser.name, email = newUser.email, password = newUser.password, passwordConfirmation = newUser.passwordConfirmation;
                         if (password !== passwordConfirmation) {
                             throw new BadRequestError_1.BadRequestError("Password confirmation does not match");
                         }
@@ -63,10 +63,10 @@ var RegisterUserUseCase = /** @class */ (function () {
                     case 2:
                         user = _a.sent();
                         uid = user.uid;
-                        //create it also in our database
+                        // create it also in our database
                         return [4 /*yield*/, FirebaseHelper_1.firebaseHelper.db.collection("users").doc(uid).set(newUser)];
                     case 3:
-                        //create it also in our database
+                        // create it also in our database
                         _a.sent();
                         return [2 /*return*/, user];
                     case 4:

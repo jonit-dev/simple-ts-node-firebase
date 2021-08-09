@@ -46,7 +46,7 @@ var ServerTypes_1 = require("../../types/ServerTypes");
 var ViewCafeUseCase_1 = require("./ViewCafeUseCase");
 var cafeRouter = express_1.default.Router();
 exports.cafeRouter = cafeRouter;
-cafeRouter.get("/cafes", AuthMiddleware_1.isAuthenticated, function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+cafeRouter.get("/cafe", AuthMiddleware_1.isAuthenticated, function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var cafes;
     return __generator(this, function (_a) {
         switch (_a.label) {
