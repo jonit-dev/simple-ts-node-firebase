@@ -11,7 +11,6 @@ class FirebaseHelper {
       credential: admin.credential.cert(serviceAccount as ServiceAccount),
     });
     this.db = admin.firestore();
-    console.log(`️‍🔥 Firebase-admin initialized`);
   }
 }
 
