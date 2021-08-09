@@ -9,16 +9,13 @@
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "./src",
+    "baseUrl": "src",
     "paths": {
-      "@insta-shared/*": ["../insta-shared/*"]
+      "@providers/*": ["providers/*"],
+      "@useCases/*": ["useCases/*"],
+      "@insta-shared/*": ["../../insta-shared/*"]
     }
   },
   "exclude": ["node_modules"],
-  "include": ["./src/**/*.ts"],
-  "references": [
-    {
-      "path": "../insta-shared"
-    }
-  ]
+  "include": ["./src/**/*.ts"]
 }

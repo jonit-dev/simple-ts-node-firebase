@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 require("express-async-errors");
+var _insta_shared_1 = require("@insta-shared");
 var compression_1 = __importDefault(require("compression"));
 var cors_1 = __importDefault(require("cors"));
 var express_1 = __importDefault(require("express"));
@@ -32,5 +33,6 @@ var limiter = express_rate_limit_1.default({
 app.use(limiter);
 app.listen(port, function () {
     console.log("\u2699\uFE0F Server running on port " + port);
+    console.log(_insta_shared_1.Currency.USD);
 });
 app.use(ErrorHandlerMiddleware_1.errorHandlerMiddleware); //! MUST be at the end
