@@ -1,10 +1,12 @@
 import { auth } from "firebase-admin";
+import { provide } from "inversify-binding-decorators";
 
 import { BadRequestError } from "../../providers/errors/BadRequestError";
 import { firebaseHelper } from "../../providers/helpers/FirebaseHelper";
 import { INewUser } from "./types/UserTypes";
 
-class RegisterUserUseCase {
+@provide(RegisterUserUseCase)
+export class RegisterUserUseCase {
   public async register(newUser: INewUser): Promise<auth.UserRecord> {
     const { name, email, password, passwordConfirmation } = newUser;
 
@@ -23,6 +25,9 @@ class RegisterUserUseCase {
 
       // create it also in our database
 
+      delete newUser.password;
+      delete newUser.passwordConfirmation;
+
       await firebaseHelper.db.collection("users").doc(uid).set(newUser);
 
       return user;
@@ -31,7 +36,3 @@ class RegisterUserUseCase {
     }
   }
 }
-
-const registerUserUseCase = new RegisterUserUseCase();
-
-export { registerUserUseCase };

@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "emitDecoratorMetadata": true, // TypeDi
+    "experimentalDecorators": true, // TypeDi
     "resolveJsonModule": true,
     "noImplicitAny": false,
     "target": "es5",

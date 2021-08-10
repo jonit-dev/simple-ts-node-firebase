@@ -1,7 +1,10 @@
+import { provide } from "inversify-binding-decorators";
+
 import { BadRequestError } from "../../providers/errors/BadRequestError";
 import { readAllResources } from "../../providers/helpers/FirebaseCRUDHelper";
 
-class ViewCafeUseCase {
+@provide(ViewCafeUseCase)
+export class ViewCafeUseCase {
   public async readAll(): Promise<any[]> {
     try {
       const cafes = await readAllResources("cafes");
@@ -14,7 +17,3 @@ class ViewCafeUseCase {
     }
   }
 }
-
-const viewCafeUseCase = new ViewCafeUseCase();
-
-export { viewCafeUseCase };

@@ -1,24 +1,26 @@
-import express from "express";
+import * as express from "express";
+import { controller, httpGet, interfaces } from "inversify-express-utils";
+import { HttpStatus } from "types/ServerTypes";
 
-import { HttpStatus } from "../../types/ServerTypes";
-import { viewFormUseCase } from "./ViewFormUseCase";
+import { ViewFormUseCase } from "./ViewFormUseCase";
 
-const formRouter = express.Router();
+@controller("/form")
+export class FormController implements interfaces.Controller {
+  constructor(private viewFormUseCase: ViewFormUseCase) {}
 
-formRouter.get("/form/countries", (req, res) => {
-  const countries = viewFormUseCase.readCountries();
-  return res.status(HttpStatus.OK).send(countries);
-});
-
-formRouter.get("/form/languages", (req, res) => {
-  const languages = viewFormUseCase.readLanguages();
-
-  return res.status(HttpStatus.OK).send(languages);
-});
-
-formRouter.get("/form/industries", (req, res) => {
-  const industries = viewFormUseCase.readIndustries();
-  return res.status(HttpStatus.OK).send(industries);
-});
-
-export { formRouter };
+  @httpGet("/countries")
+  private async countries(req: express.Request, res: express.Response): Promise<any> {
+    const countries = this.viewFormUseCase.readCountries();
+    return res.status(HttpStatus.OK).send(countries);
+  }
+  @httpGet("/languages")
+  private async languages(req: express.Request, res: express.Response): Promise<any> {
+    const languages = this.viewFormUseCase.readLanguages();
+    return res.status(HttpStatus.OK).send(languages);
+  }
+  @httpGet("/industries")
+  private async industries(req: express.Request, res: express.Response): Promise<any> {
+    const industries = this.viewFormUseCase.readIndustries();
+    return res.status(HttpStatus.OK).send(industries);
+  }
+}

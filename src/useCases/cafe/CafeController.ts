@@ -1,15 +1,17 @@
-import express from "express";
+import { isAuthenticated } from "@providers/middlewares/AuthMiddleware";
+import * as express from "express";
+import { controller, httpGet, interfaces } from "inversify-express-utils";
+import { HttpStatus } from "types/ServerTypes";
 
-import { isAuthenticated } from "../../providers/middlewares/AuthMiddleware";
-import { HttpStatus } from "../../types/ServerTypes";
-import { viewCafeUseCase } from "./ViewCafeUseCase";
+import { ViewCafeUseCase } from "./ViewCafeUseCase";
 
-const cafeRouter = express.Router();
+@controller("/cafe", isAuthenticated)
+export class CafeController implements interfaces.Controller {
+  constructor(private viewCafeUseCase: ViewCafeUseCase) {}
 
-cafeRouter.get("/cafe", isAuthenticated, async (req, res) => {
-  const cafes = await viewCafeUseCase.readAll();
-
-  return res.status(HttpStatus.OK).send(cafes);
-});
-
-export { cafeRouter };
+  @httpGet("/")
+  private async index(req: express.Request, res: express.Response): Promise<any> {
+    const cafes = await this.viewCafeUseCase.readAll();
+    return res.status(HttpStatus.OK).send(cafes);
+  }
+}

@@ -31,6 +31,9 @@
     "firebase": "^8.9.0",
     "firebase-admin": "^9.11.0",
     "husky": "^7.0.1",
+    "inversify": "^5.1.1",
+    "inversify-binding-decorators": "^4.0.0",
+    "inversify-express-utils": "^6.3.2",
     "morgan": "^1.10.0",
     "pm2": "^5.1.0",
     "prettier": "^2.3.2",
@@ -44,6 +47,7 @@
     "dayjs": "^1.10.6",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "reflect-metadata": "^0.1.13"
   }
 }
